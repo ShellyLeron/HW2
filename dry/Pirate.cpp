@@ -1,8 +1,7 @@
-
 #include "Pirate.h"
 
-Pirate::Pirate(): name(""), bounty(0){}
-Pirate::Pirate(const string& name, int bounty): name(name), bounty(bounty) {}
+Pirate::Pirate(): name(""), bounty(0), devilFruit(DEVIL_FRUIT::NONE) {}
+Pirate(const string& name, DEVIL_FRUIT devilFruit, int bounty): name(name), bounty(bounty), devilFruit(devilFruit) {}
 
 
 void Pirate::setName(const string& name){
@@ -36,7 +35,7 @@ const char* const devilFruitNames[] = {
 };
 
 std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
-    os << pirate.name << ", bounty: " << pirate.bounty;
+    os << "name: " << pirate.name << ", bounty: " << pirate.bounty << " (Devil Fruit: " << devilFruitNames[pirate.devilFruit] << ")";
     return os;
 }
 
